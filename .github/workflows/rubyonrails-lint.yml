@@ -23,10 +23,12 @@ jobs:
           bundler-cache: true
       # Add or Replace any other security checks here
       - name: Run security checks
+        continue-on-error: true
         run: |
           bundle exec bundler-audit --update
           bundle exec brakeman -q -w2
       # Add or Replace any other Linters here
       - name: Run linters
+        continue-on-error: true
         run: |
           bundle exec rubocop --parallel
