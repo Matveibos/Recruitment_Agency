@@ -32,4 +32,4 @@ jobs:
           bundle exec rubocop --parallel
       - name: Run tests
         run: |
-          bundle exec rspec spec
+          bundle exec rspec
