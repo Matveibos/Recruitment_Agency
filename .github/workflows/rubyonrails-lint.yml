@@ -30,3 +30,6 @@ jobs:
       - name: Run linters
         run: |
           bundle exec rubocop --parallel
+      - name: Run tests
+        run: |
+          bundle exec rspec
