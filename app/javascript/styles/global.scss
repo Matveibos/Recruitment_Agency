@@ -1,1 +1,9 @@
 @import "~bootstrap/scss/bootstrap";
+
+.alert-alert {
+  @extend .alert-danger
+}
+
+.alert-notice {
+  @extend .alert-warning
+}
