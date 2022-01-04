@@ -6,17 +6,18 @@
           <span class="nav-link active" aria-current="page" href="#">Main page</span>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Vacancies</a>
+          <%=link_to"Vacancies",root_path,:class=>'btn btn-warning' %>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" >Profile</a>
+          <%=link_to"Profile",root_path,:class=>'btn btn-warning' %>
         </li>
         <% if current_user.role=="admin" %>
-          <%= link_to 'Admin dashboard', class: 'nav_link' %>
+          <a class="nav-link"> </a>
+          <%=link_to"Admin dashboard",root_path,:class=>'btn btn-primary' %>
           <a class="nav-link"> </a>
         <%end %>
         <li class="nav-item">
-           <%= link_to 'Log Out', destroy_user_session_path, class: 'nav_link', method: :delete %>
+           <%= link_to 'Log Out', destroy_user_session_path, class: 'btn btn-danger', method: :delete %>
         </li>
         <li class="nav-item">
           <a class="nav-link" style="color:darkred">Current user : <%= current_user.email %></a>
