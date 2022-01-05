@@ -44,4 +44,5 @@ jobs:
       - name: Run tests
         run: |
           bundle exec rails db:setup
+          bundle exec rails db:migrate
           bundle exec rspec
