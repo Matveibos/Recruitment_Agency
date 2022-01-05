@@ -3,5 +3,9 @@ Rails.application.routes.draw do
 
   root to: 'main#mp'
   resources :main
-  # get '/mp', to: 'main#mp'
+
+
+  #in progress
+  # get '/vac', to 'vacancies#vac'
+  
 end
