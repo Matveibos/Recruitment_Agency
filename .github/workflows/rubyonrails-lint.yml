@@ -3,7 +3,7 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 # This workflow will download a prebuilt Ruby version, install dependencies, and  run linters
-name: Security and Linter checks
+name: Security, Linter and Tests
 
 on:
   push:
@@ -13,6 +13,17 @@ on:
 jobs:
   run-lint:
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres
+        ports: ["5432:5432"]
+        env:
+          POSTGRES_PASSWORD: postgres
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -32,4 +43,6 @@ jobs:
           bundle exec rubocop --parallel
       - name: Run tests
         run: |
+          bundle exec rails db:setup
+          bundle exec rails db:migrate
           bundle exec rspec
