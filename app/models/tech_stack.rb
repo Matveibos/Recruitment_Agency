@@ -1,3 +1,3 @@
-class Tech_stack < ApplicationRecord
+class TechStack < ApplicationRecord
   belongs_to :entity, polymorphic: true
 end
