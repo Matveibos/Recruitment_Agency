@@ -1,0 +1,39 @@
+
+<div class="container">
+  <div class="row info" style="text-align:center;"></div>
+
+  <div class="resume">
+    <header class="page-header">
+      <h1 class="page-title">Profile <%=current_user.firstname%> <%=current_user.lastname%></h1>
+      <small> <i class="fa fa-clock-o"></i> Last Updated on: <%=current_user.updated_at%> </small>
+    </header>
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
+        <div class="panel panel-default">
+          <div class="panel-heading resume-heading">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="col-xs-12 col-sm-4">
+                  <figure>
+                    <img class="img-circle img-responsive" alt="" src="http://placehold.it/300x300">
+                  </figure>
+                </div>
+
+                <div class="col-xs-12 col-sm-8">
+                  <ul class="list-group">
+                    <li class="list-group-item"><%=current_user.firstname%> <%=current_user.lastname%></li>
+                    <li class="list-group-item"><%=current_user.technical_level%></li>
+                    <li class="list-group-item"><%=current_user.company_name%> </li>
+                    <li class="list-group-item"><i class="fa fa-envelope"></i> <%=current_user.email%></li>
+                  </ul>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <%= link_to 'Edit profile',edit_user_registration_path,:class =>'btn btn-warning'  %>
+      </div>
+    </div>
+  </div>
+</div>
