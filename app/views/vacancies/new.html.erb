@@ -1,0 +1,8 @@
+<h1>New Vacancy</h1>
+<%= form_for :vacancy,url:vacancies_path do|f|%>
+
+<%= f.text_field(:title, {:class =>'form-control'}) %>
+<%end %>
+<%= render 'form', vacancy: @vacancy,class:"btn btn-primary" %>
+
+<%= link_to 'Back', vacancies_path %>

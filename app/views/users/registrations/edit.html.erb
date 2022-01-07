@@ -65,6 +65,6 @@
     <% end %>
 
     <p>
-      <%= link_to t('.cancel_my_account'), registration_path(resource_name), data: { confirm: t('.are_you_sure') },class: 'btn btn-danger', method: :delete %>.
+      <%= link_to 'Delete my account', registration_path(resource_name), data: { confirm: t('.are_you_sure') },class: 'btn btn-danger', method: :delete %>
     </p>
 
