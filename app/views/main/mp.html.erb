@@ -1,1 +1,10 @@
 <h1>MainPage</h1>
+<%if current_user.role == "user" %>
+  <h2>User Mainpage</h2>
+<%end %>
+<%if current_user.role == "manager" %>
+  <h2>Manager Mainpage</h2>
+<%end %>
+<%if current_user.role == "admin" %>
+  <h2>Admin Mainpage</h2>
+<%end %>
