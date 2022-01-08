@@ -63,7 +63,6 @@ class VacanciesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def vacancy_params
-
     params.require(:vacancy).permit(:title, :body, :term, :technical_level).merge(user: current_user)
   end
 end
