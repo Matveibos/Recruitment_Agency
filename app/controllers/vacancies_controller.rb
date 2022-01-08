@@ -26,10 +26,8 @@ class VacanciesController < ApplicationController
     respond_to do |format|
       if @vacancy.save
         format.html { redirect_to @vacancy, notice: "Vacancy was successfully created." }
-        format.json { render :show, status: :created, location: @vacancy }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @vacancy.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -65,6 +63,7 @@ class VacanciesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def vacancy_params
-    params.fetch(:vacancy, {})
+
+    params.require(:vacancy).permit(:title, :body, :term, :technical_level).merge(user: current_user)
   end
 end
