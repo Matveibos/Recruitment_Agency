@@ -5,6 +5,5 @@ Rails.application.routes.draw do
   root to: 'main#mp'
   resources :main
   get '/profile', to: 'profiles#prof'
-  get '/vacancy', to: 'vacancies#new'
   # get '/mp', to: 'main#mp'
 end
