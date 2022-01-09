@@ -10,6 +10,9 @@
 <h5>User_id</h5>
 <%=@vacancy.user_id %>
 <br>
+<h5>User_email</h5>
+<%=@vacancy.user.email %>
+<br>
 
 <%= link_to 'Edit', edit_vacancy_path(@vacancy),class: 'btn btn-warning' %>
 <%= link_to 'Back', vacancies_path , class: 'btn btn-danger'%>

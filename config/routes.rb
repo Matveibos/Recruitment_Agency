@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :techstacks
   resources :vacancies
   resources :main
   devise_for :users, controllers: { registrations: 'users/registrations' }

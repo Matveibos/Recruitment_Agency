@@ -20,10 +20,7 @@
            <%= link_to 'Log Out', destroy_user_session_path, class: 'btn btn-danger', method: :delete %>
         </li>
         <%if user_signed_in? %>
-        <li class="nav-item">
-          <%= link_to 'Edit',edit_user_registration_path,:class =>'btn btn-warning'  %>
-        </li>
-          <%end %>
+        <%end %>
         <li class="nav-item">
           <a class="nav-link" style="color:darkred">Current user : <%= current_user.email %></a>
         </li>
