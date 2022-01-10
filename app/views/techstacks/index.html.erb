@@ -12,14 +12,68 @@
   <tbody>
     <% @tech_stacks.each do |tech_stack| %>
       <tr>
-        <td><%= link_to 'Show', tech_stack, class: 'btn btn-primary' %></td>
+
+        <%if tech_stack.entity_id == @id.to_i %>
+          <%if tech_stack.entity_type == @type%>
+        <h5>Name of technology</h5>
+        <% my_string = tech_stack.name%>
+        <%my_level = tech_stack.level %>
+        <% my_string=my_string.split(' ') %>
+        <% my_level=my_level.split(' ') %>
+        <% my_string = my_string.zip(my_level).flatten.compact %>
+        <%i=0 %>
+        <%my_string.each do |name_and_level| %>
+          <%=name_and_level%>
+        <%end %>
+            <%else %>
+<br>
+            <h5>Name of technology</h5>
+            <% my_string = tech_stack.name%>
+            <%my_level = tech_stack.level %>
+            <% my_string=my_string.split(' ') %>
+            <% my_level=my_level.split(' ') %>
+            <% my_string = my_string.zip(my_level).flatten.compact %>
+            <%i=0 %>
+            <%my_string.each do |name_and_level| %>
+              <%=name_and_level%>
+            <%end %>
+            <br>
+
+
+
+
         <td><%= link_to 'Edit', edit_techstack_path(tech_stack), class: 'btn btn-warning' %></td>
         <td><%= link_to 'Destroy', tech_stack, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
       </tr>
-    <% end %>
+          <% end %>
+        <% end %>
+
+<!--        <tr>-->
+        <%#=@id%>
+          <%#if tech_stack.entity_id ==@id.to_i %>
+            <%#if tech_stack.entity_type == "Vacancy"%>
+<!--              <h5>Name of technology</h5>-->
+              <%# my_string = tech_stack.name%>
+              <%#my_level = tech_stack.level %>
+              <%# my_string=my_string.split(' ') %>
+              <%# my_level=my_level.split(' ') %>
+              <%# my_string = my_string.zip(my_level).flatten.compact %>
+              <%#i=0 %>
+              <%#my_string.each do |name_and_level| %>
+                <%#=name_and_level%>
+              <%#end %>
+<!--              <br>-->
+<!--              <td><%#= link_to 'Edit', edit_techstack_path(tech_stack), class: 'btn btn-warning' %></td>-->
+<!--              <td><%#= link_to 'Destroy', tech_stack, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>-->
+<!--              </tr>-->
+            <%# end %>
+          <%#end %>
+
+        <%end %>
+
   </tbody>
 </table>
-
 <br>
 
-<%= link_to 'New Tech Stack', new_techstack_path %>
+<%= link_to 'Back', profile_path, class: 'btn btn-danger' %>
+

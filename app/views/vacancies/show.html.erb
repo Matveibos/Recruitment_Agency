@@ -13,6 +13,14 @@
 <h5>User_email</h5>
 <%=@vacancy.user.email %>
 <br>
+  <%if current_user.role != 'User' %>
+    <%= link_to 'Edit', edit_vacancy_path(@vacancy),class: 'btn btn-warning' %>
+    <%= link_to 'Add Technology stack', new_techstack_path(:entity_id => @vacancy.id, :entity_type => "Vacancy"), :class =>'btn btn-warning'  %>
+    <%else %>
+    <%= link_to 'Respond', root_path,class: 'btn btn-warning' %>
 
-<%= link_to 'Edit', edit_vacancy_path(@vacancy),class: 'btn btn-warning' %>
+  <%end %>
+<%=@vacancy.id %>
+<%= link_to 'Show Technology stack', techstacks_path(:entity_id => @vacancy.id, :entity_type => "Vacancy"), :class =>'btn btn-warning'  %>
+
 <%= link_to 'Back', vacancies_path , class: 'btn btn-danger'%>

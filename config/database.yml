@@ -20,7 +20,7 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: postgres
   host: localhost
-  password: mb23532
+  password: <%= ENV['REC_AGENCY_DATABASE_PASSWORD'] %>
   port: 5432
 
 development:
@@ -30,7 +30,7 @@ development:
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
-  # the same name as the operating system user running Rails.
+  # the same name as the operating system users running Rails.
   #username: Course_Project
 
   # The password associated with the postgres role (username).
@@ -45,7 +45,7 @@ development:
   # If your server runs on a different port number, change accordingly.
   #port: 5432
 
-  # Schema search path. The server defaults to $user,public
+  # Schema search path. The server defaults to $users,public
   #schema_search_path: myapp,sharedapp,public
 
   # Minimum log levels, in increasing order:
