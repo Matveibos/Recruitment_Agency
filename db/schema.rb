@@ -72,7 +72,7 @@ ActiveRecord::Schema.define(version: 2022_01_09_180827) do
     t.index ["entity_type", "entity_id"], name: "index_techstacks_on_entity_type_and_entity_id"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "proverka", force: :cascade do |t|
     t.string "status", default: "active", null: false
     t.string "technical_level", default: "", null: false
     t.string "role", default: "User", null: false

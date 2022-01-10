@@ -7,6 +7,6 @@
 <%end %>
 <%if current_user.role == "Admin" %>
   <h1>Admin Dachboard</h1>
-  <%=link_to"View users",users_path,:class=>'btn btn-warning' %>
+  <%=link_to"View Users",proverka_index_path,:class=>'btn btn-warning' %>
   <%=link_to"Add Manager",user_registration_path,:class=>'btn btn-warning' %>
 <%end %>

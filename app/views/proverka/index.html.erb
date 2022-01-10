@@ -32,7 +32,7 @@
           </div>
         </div>
         <br>
-        <%= link_to 'Edit profile',users_path(usr),:class =>'btn btn-warning'  %>
+        <%= link_to 'Edit profile',edit_proverka_path(usr),:class =>'btn btn-warning'  %>
         <%= link_to 'Show Technology stack', techstacks_path(:entity_id => usr.id, :entity_type => "User"), :class =>'btn btn-warning'  %>
         <%= link_to 'Add Technology stack', new_techstack_path(:entity_id => usr.id, :entity_type => "User"), :class =>'btn btn-warning'  %>
       </div>
