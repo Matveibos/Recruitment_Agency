@@ -5,13 +5,15 @@
         <li class="nav-item">
           <span class="nav-link active" aria-current="page">Main page</span>
         </li>
+
         <li class="nav-item">
-          <%=link_to"Vacancies",root_path,:class=>'btn btn-warning' %>
+          <%=link_to"Vacancies",vacancies_path,:class=>'btn btn-warning' %>
         </li>
+
         <li class="nav-item">
           <%=link_to"Profile",profile_path,:class=>'btn btn-warning' %>
         </li>
-        <% if current_user.role=="admin" %>
+        <% if current_user.role=="Admin" %>
           <a class="nav-link"> </a>
           <%= link_to 'Admin dashboard',root_path, class: 'btn btn-primary' %>
           <a class="nav-link"> </a>
@@ -19,14 +21,6 @@
         <li class="nav-item">
            <%= link_to 'Log Out', destroy_user_session_path, class: 'btn btn-danger', method: :delete %>
         </li>
-        <li class="nav-item">
-          <%= link_to 'Create Vacancy', vacancies_path, class: 'btn btn-primary'%>
-        </li>
-        <%if user_signed_in? %>
-        <li class="nav-item">
-          <%= link_to 'Edit',edit_user_registration_path,:class =>'btn btn-warning'  %>
-        </li>
-          <%end %>
         <li class="nav-item">
           <a class="nav-link" style="color:darkred">Current user : <%= current_user.email %></a>
         </li>

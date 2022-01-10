@@ -1,17 +1,27 @@
 <%= form_with(model: vacancy) do |form| %>
-  <% if vacancy.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(vacancy.errors.count, "error") %> prohibited this vacancy from being saved:</h2>
+  <%= render "shared/error_messages", resource: vacancy %>
 
-      <ul>
-        <% vacancy.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <div class="mb-3">
+    <%= form.label :title,class:'form-label' %>
+    <%=form.text_field :title, class:'form-control' %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :body,class:'form-label' %>
+    <%=form.rich_text_area :body, class:'form-control' %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :term,class:'form-label' %>
+    <%=form.date_field :term, class:'form-control' %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :technical_level,class:'form-label' %>
+    <%=form.text_field :technical_level, class:'form-control' %>
+  </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Save', class:'btn btn-primary' %>
   </div>
 <% end %>

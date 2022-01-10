@@ -13,6 +13,7 @@
 !/log/.keep
 !/tmp/.keep
 
+
 # Ignore pidfiles, but keep the directory.
 /tmp/pids/*
 !/tmp/pids/
@@ -35,3 +36,5 @@
 yarn-debug.log*
 .yarn-integrity
 /.idea
+
+/config/local_env.yml

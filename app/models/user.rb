@@ -6,5 +6,6 @@ class User < ApplicationRecord
 
   validates :firstname, presence: true
 
-  has_one :tech_stack, as: :entity
+  has_one :techstack, as: :entity
+  has_many :vacancies
 end

@@ -1,4 +1,26 @@
 <p id="notice"><%= notice %></p>
+<h5>Title</h5>
+<%=@vacancy.title %>
+<h5> Body</h5>
+<%=@vacancy.body %>
+<h5>Term</h5>
+<%=@vacancy.term %>
+<h5>Tech_level</h5>
+<%=@vacancy.technical_level %>
+<h5>User_id</h5>
+<%=@vacancy.user_id %>
+<br>
+<h5>User_email</h5>
+<%=@vacancy.user.email %>
+<br>
+  <%if current_user.role != 'User' %>
+    <%= link_to 'Edit', edit_vacancy_path(@vacancy),class: 'btn btn-warning' %>
+    <%= link_to 'Add Technology stack', new_techstack_path(:entity_id => @vacancy.id, :entity_type => "Vacancy"), :class =>'btn btn-warning'  %>
+    <%else %>
+    <%= link_to 'Respond', root_path,class: 'btn btn-warning' %>
 
-<%= link_to 'Edit', edit_vacancy_path(@vacancy) %> |
-<%= link_to 'Back', vacancies_path %>
+  <%end %>
+<%=@vacancy.id %>
+<%= link_to 'Show Technology stack', techstacks_path(:entity_id => @vacancy.id, :entity_type => "Vacancy"), :class =>'btn btn-warning'  %>
+
+<%= link_to 'Back', vacancies_path , class: 'btn btn-danger'%>

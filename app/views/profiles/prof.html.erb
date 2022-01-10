@@ -28,11 +28,17 @@
                   </ul>
                 </div>
               </div>
-
             </div>
           </div>
         </div>
-        <%= link_to 'Edit profile',edit_user_registration_path,:class =>'btn btn-warning'  %>
+        <br>
+        <%= link_to 'Edit profile', edit_user_registration_path, :class =>'btn btn-warning' %>
+        <%#= link_to 'Edit profile', edit_proverka_path(current_user.id), :class =>'btn btn-warning' %>
+
+        <%if current_user.role == "User" %>
+        <%= link_to 'Show Technology stack', techstacks_path, :class =>'btn btn-warning'  %>
+        <%= link_to 'Add Technology stack', new_techstack_path(:entity_id => current_user.id, :entity_type => "User"), :class =>'btn btn-warning'  %>
+          <%end %>
       </div>
     </div>
   </div>
