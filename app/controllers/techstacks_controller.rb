@@ -4,17 +4,24 @@ class TechstacksController < ApplicationController
   # GET /techstacks or /techstacks.json
   def index
     @tech_stacks = Techstack.all
+    @id = params[:entity_id]
+    @type = params[:entity_type]
   end
 
   # GET /techstacks/1 or /techstacks/1.json
   def show
+    @id = params[:entity_id]
   end
 
   # GET /techstacks/new
   def new
     @tech_stack = Techstack.new
     @tech_stack.entity_id = params[:entity_id]
+    @id = params[:entity_id]
     @tech_stack.entity_type = params[:entity_type]
+    if Techstack.find_by entity_id: @tech_stack.entity_id
+      redirect_to techstacks_path(@id)
+    end
   end
 
   # GET /techstacks/1/edit

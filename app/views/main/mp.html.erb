@@ -1,10 +1,12 @@
-<h1>MainPage</h1>
-<%if current_user.role == "user" %>
-  <h2>User Mainpage</h2>
+
+<%if current_user.role == "User" %>
+  <h1>User Mainpage</h1>
 <%end %>
-<%if current_user.role == "manager" %>
-  <h2>Manager Mainpage</h2>
+<%if current_user.role == "Manager" %>
+  <h1>Manager Mainpage</h1>
 <%end %>
-<%if current_user.role == "admin" %>
-  <h2>Admin Mainpage</h2>
+<%if current_user.role == "Admin" %>
+  <h1>Admin Dachboard</h1>
+  <%=link_to"View Users",proverka_index_path,:class=>'btn btn-warning' %>
+  <%=link_to"Add Manager",user_registration_path,:class=>'btn btn-warning' %>
 <%end %>
