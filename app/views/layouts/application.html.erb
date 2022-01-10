@@ -11,8 +11,20 @@
   </head>
 
   <body>
-  <%= render "layouts/navbar" %>
-  <%= yield %>
-
+    <%= render "layouts/navbar" %>
+      <main class="container py-5">
+        <%render "layouts/flash_messages" %>
+            <div class="row">
+              <div class="mx-auto">
+                <div class="card">
+                  <div class="card shadow-lg ">
+                    <div class="card-body p-5">
+                      <%= yield %>
+                    </div>
+                 </div>
+                </div>
+              </div>
+            </div>
+      </main>
   </body>
 </html>
