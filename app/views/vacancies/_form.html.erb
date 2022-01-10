@@ -1,0 +1,27 @@
+<%= form_with(model: vacancy) do |form| %>
+  <%= render "shared/error_messages", resource: vacancy %>
+
+  <div class="mb-3">
+    <%= form.label :title,class:'form-label' %>
+    <%=form.text_field :title, class:'form-control' %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :body,class:'form-label' %>
+    <%=form.rich_text_area :body, class:'form-control' %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :term,class:'form-label' %>
+    <%=form.date_field :term, class:'form-control' %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :technical_level,class:'form-label' %>
+    <%=form.text_field :technical_level, class:'form-control' %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Save', class:'btn btn-primary' %>
+  </div>
+<% end %>

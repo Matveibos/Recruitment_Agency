@@ -4,5 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
 
-  has_one :tech_stack, as: :entity
+  validates :firstname, presence: true
+
+  has_one :techstack, as: :entity
+  has_many :vacancies
 end
