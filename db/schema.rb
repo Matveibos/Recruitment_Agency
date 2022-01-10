@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_07_222719) do
+ActiveRecord::Schema.define(version: 2022_01_09_180827) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -52,20 +52,30 @@ ActiveRecord::Schema.define(version: 2022_01_07_222719) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "tech_stack", force: :cascade do |t|
-    t.string "name"
-    t.string "level"
-    t.string "entity_type"
-    t.bigint "entity_id"
+  create_table "services", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "provider"
+    t.string "uid"
+    t.string "uname"
+    t.string "uemail"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["entity_type", "entity_id"], name: "index_tech_stack_on_entity"
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "status", default: "", null: false
+  create_table "techstacks", force: :cascade do |t|
+    t.string "name"
+    t.string "level"
+    t.bigint "entity_id"
+    t.string "entity_type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["entity_type", "entity_id"], name: "index_techstacks_on_entity_type_and_entity_id"
+  end
+
+  create_table "proverka", force: :cascade do |t|
+    t.string "status", default: "active", null: false
     t.string "technical_level", default: "", null: false
-    t.string "role", default: "", null: false
+    t.string "role", default: "User", null: false
     t.string "company_name", default: "", null: false
     t.string "firstname", default: "", null: false
     t.string "lastname", default: "", null: false
@@ -86,14 +96,13 @@ ActiveRecord::Schema.define(version: 2022_01_07_222719) do
   end
 
   create_table "vacancies", force: :cascade do |t|
-    t.string "title"
-    t.text "body"
-    t.date "term"
-    t.string "technical_level"
-    t.string "status"
+    t.string "title", null: false
+    t.date "term", null: false
+    t.string "technical_level", null: false
+    t.string "status", default: "active", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "user_id"
+    t.bigint "user_id", null: false
     t.index ["user_id"], name: "index_vacancies_on_user_id"
   end
 

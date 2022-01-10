@@ -1,5 +1,5 @@
 class AddUserToVacancies < ActiveRecord::Migration[6.1]
   def change
-    remove_column :vacancies, :user
+    add_reference :vacancies, :user, index: true, null: false
   end
 end
